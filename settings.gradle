@@ -1,0 +1,2 @@
+rootProject.name = "MovieApp using Recyclerview Retrofit"
+include ':app'
