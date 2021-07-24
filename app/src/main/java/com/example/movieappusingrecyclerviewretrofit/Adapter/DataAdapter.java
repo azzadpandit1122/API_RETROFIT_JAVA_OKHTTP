@@ -19,13 +19,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     Context context;
     List<data> dataList;
 
-    public DataAdapter(Context context,List<data> dataList) {
+    public DataAdapter(Context context, List<data> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
-    // https://run.mocky.io/v3/c2b5a5f0-dfc7-4057-8409-5b67bb1c1883
-
-
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -36,10 +33,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder holder, int position) {
-    holder.rowId.setText(dataList.get(position).getId());
-    holder.rowName.setText(dataList.get(position).getFirst_name());
-    holder.rowLastName.setText(dataList.get(position).getLast_name());
-    holder.rowEmail.setText(dataList.get(position).getEmail());
+        holder.rowId.setText(dataList.get(position).getId());
+        holder.rowName.setText(dataList.get(position).getFirst_name());
+        holder.rowLastName.setText(dataList.get(position).getLast_name());
+        holder.rowEmail.setText(dataList.get(position).getEmail());
 
         Glide.with(context)
                 .load(dataList.get(position).getAvatar())
@@ -54,7 +51,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final Context context;
         ImageView rowImage;
-        TextView rowName, rowLastName,rowId,rowEmail;
+        TextView rowName, rowLastName, rowId, rowEmail;
 
         public ViewHolder(View itemView) {
             super(itemView);
