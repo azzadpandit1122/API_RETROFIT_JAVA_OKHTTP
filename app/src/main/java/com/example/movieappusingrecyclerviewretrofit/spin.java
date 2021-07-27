@@ -42,8 +42,6 @@ public class spin extends AppCompatActivity {
         TextView output = findViewById(R.id.name);
 
         luckyWheel.setTarget(0);
-        SpinData modal = new SpinData();
-
 
         luckyWheel.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
             @Override
@@ -54,7 +52,7 @@ public class spin extends AppCompatActivity {
         List<WheelItem> wheelitem = new ArrayList<>();
         wheelitem.add(new WheelItem(Color.LTGRAY, BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_name),"1"));
         wheelitem.add(new WheelItem(Color.LTGRAY, BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_name),"2"));
-        wheelitem.add(new WheelItem(Color.LTGRAY, BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_name),"3"));
+        wheelitem.add(new WheelItem(Color.LTGRAY, BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_name), "3"));
 
         luckyWheel.addWheelItems(wheelitem);
         Button button = findViewById(R.id.start);
@@ -71,15 +69,11 @@ public class spin extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call<SpinData> call, Response<SpinData> response) {
-                            SpinData spinData = response.body();
                         if (response.isSuccessful())
                         {
-                            String Desination = spinData.getDesignation();
-                            int convertTimeInInt = Integer.parseInt(Desination);
-                            int millis = convertTimeInInt; // obtained from StopWatch
-                            int minutes = (millis / 1000)  / 60;
-                            int seconds = ((millis / 1000) % 60);
-                            output.setText(minutes);
+                            Log.d(TAG, "onResponse: "+response.body().getDesignation());
+                            Log.e(TAG, "onResponse: "+response.body().getDesignation() );
+
 
                         }
 
