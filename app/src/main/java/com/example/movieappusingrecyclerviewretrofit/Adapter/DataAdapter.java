@@ -17,12 +17,13 @@ import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     Context context;
-    List<data> dataList;
+    List<data> renametoDataList;
 
-    public DataAdapter(Context context, List<data> dataList) {
+    public DataAdapter(Context context, List<data> renametoDataList) {
         this.context = context;
-        this.dataList = dataList;
+        this.renametoDataList = renametoDataList;
     }
+
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -33,29 +34,28 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder holder, int position) {
-        holder.rowId.setText(dataList.get(position).getId());
-        holder.rowName.setText(dataList.get(position).getFirst_name());
-        holder.rowLastName.setText(dataList.get(position).getLast_name());
-        holder.rowEmail.setText(dataList.get(position).getEmail());
+        holder.rowName.setText(renametoDataList.get(position).getFirst_name());
+        holder.rowLastName.setText(renametoDataList.get(position).getLast_name());
+        holder.rowEmail.setText(renametoDataList.get(position).getEmail());
 
         Glide.with(context)
-                .load(dataList.get(position).getAvatar())
+                .load(renametoDataList.get(position).getAvatar())
                 .into(holder.rowImage);
+
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return renametoDataList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final Context context;
         ImageView rowImage;
-        TextView rowName, rowLastName, rowId, rowEmail;
+        TextView rowName, rowLastName, rowEmail;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            rowId = itemView.findViewById(R.id.textView);
             rowImage = itemView.findViewById(R.id.imageView);
             rowName = itemView.findViewById(R.id.textView2);
             rowLastName = itemView.findViewById(R.id.textView3);

@@ -1,7 +1,24 @@
 package com.example.movieappusingrecyclerviewretrofit.Model_Class;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class data {
-    String id,email,first_name,last_name,avatar;
+    @SerializedName("id")
+    @Expose
+    String id;
+    @SerializedName("email")
+    @Expose
+    String  email;
+    @SerializedName("first_name")
+    @Expose
+    String  first_name;
+    @SerializedName("last_name")
+    @Expose
+    String  last_name;
+    @SerializedName("avatar")
+    @Expose
+    String  avatar;
 
     public data(String id, String email, String first_name, String last_name, String avatar) {
         this.id = id;
