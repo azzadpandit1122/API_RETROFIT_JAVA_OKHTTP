@@ -7,11 +7,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
     <Button
+        android:text="Profile"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/teal_700"
         android:id="@+id/open"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/nextpage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
